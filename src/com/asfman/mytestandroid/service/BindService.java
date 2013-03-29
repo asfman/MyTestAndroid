@@ -8,7 +8,7 @@ import android.os.Binder;
 import android.os.IBinder;
 
 public class BindService extends Service {
-	private final String TAG = "bind";
+	public static final String TAG = "bind";
 
 	public class MyBinder extends Binder {
 

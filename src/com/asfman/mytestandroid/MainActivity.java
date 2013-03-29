@@ -1,8 +1,12 @@
 package com.asfman.mytestandroid;
 
-import android.os.Bundle;
+import com.asfman.mytestandroid.activity.BindServiceTest;
+import com.asfman.util.Helper;
+
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -10,6 +14,10 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+	}
+	
+	public void goBindService(View v) {
+		Helper.goIntent(this, BindServiceTest.class);
 	}
 
 	@Override

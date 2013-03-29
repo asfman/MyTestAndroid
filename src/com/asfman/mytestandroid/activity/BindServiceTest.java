@@ -22,17 +22,19 @@ public class BindServiceTest extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		logTextView = new TextView(this);
+		setContentView(logTextView);
 		Intent serviceIntent = new Intent(this, BindService.class);
 		bindService(serviceIntent, new ServiceConnection() {
 			
 			@Override
 			public void onServiceDisconnected(ComponentName name) {
 				logTextView.setText("onServiceDisconnected");
-				
+				Helper.showLog(BindService.TAG, "BindServiceTest::onServiceDisconnected");
 			}
 			
 			@Override
 			public void onServiceConnected(ComponentName name, IBinder service) {
+				Helper.showLog(BindService.TAG, "BindServiceTest::onServiceConnected");
 				logTextView.setText("onServiceConnected");
 				
 			}
@@ -41,7 +43,7 @@ public class BindServiceTest extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		Helper.showLog("BindServiceTest::onDestroy");
+		Helper.showLog(BindService.TAG, "BindServiceTest::onDestroy");
 		super.onDestroy();
 	}
 
